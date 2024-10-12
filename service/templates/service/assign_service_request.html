@@ -81,9 +81,10 @@
             {% csrf_token %}
             <label for="employee">Select Employee:</label>
             <select name="employee" id="employee">
-                {% for employee in employees %}
-                <option value="{{ employee.id }}">{{ employee.username }}</option>
-                {% endfor %}
+                <option value="employee_1">Employee 1</option>
+                <option value="employee_2">Employee 2</option>
+                <option value="employee_3">Employee 3</option>
+                <!-- Add more options as needed -->
             </select>
 
             <button type="submit">Assign</button>
