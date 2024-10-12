@@ -1,21 +1,6 @@
 # Bynry Case Study
 
 This is a my Django-based Service Request Management System for Gas Utility Company, that allows users to submit service requests, track their status, access customer support and enables administrators to manage these requests efficiently.
-
-## Table of Contents
-1. [Prerequisites](#prerequisites)
-2. [Setup Instructions](#setup-instructions)
-3. [Installation of Dependencies](#installation-of-dependencies)
-4. [Running the Project](#running-the-project)
-5. [Screenshots and Features](#screenshots-and-features)
-
-## Prerequisites
-
-Make sure you have the following installed on your machine:
-
-- Python (3.10 or above)
-
-- Django (5.1.2)
   
 ## Setup Instructions
 
@@ -23,19 +8,19 @@ Make sure you have the following installed on your machine:
    ```bash
    git clone https://github.com/DarshanBanait/Bynry.git
    cd Bynry
-2. **Create a Virtual Environment - Recommended
+2. **Create a Virtual Environment - Recommended**
    ```bash
    python -m venv venv
    source venv/bin/activate  # For macOS/Linux
    venv\Scripts\activate  # For Windows
 
-##Installation of Dependencies
+## Installation of Dependencies
 
 1. Install dependencies using pip
    ```bash
        pip install -r requirements.txt
    
-##Running the Project
+## Running the Project
 
 1. Apply Migrations
    ```bash
@@ -49,6 +34,7 @@ Make sure you have the following installed on your machine:
 3. Run the development server
    ```bash
      python manage.py runserver
+# Screenshots
 
 ## Sign Up
 ![Image 1](images/image1.png)
