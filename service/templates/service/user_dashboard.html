@@ -1,23 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #555;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-section {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Welcome, {{ user.username }}</h1>
-    <p>Please select your required services from the options below:</p>
-    
-    <!-- Submit New Request Section -->
-    <a href="{% url 'service:submit_service_request' %}">Submit a New Request</a>
-    <br><br>
-    
-    <!-- Customer Support Section -->
-    <a href="{% url 'service:customer_support' %}">Customer Support</a>
-    <br><br>
-    
-    <!-- Track My Requests Section -->
-    <a href="{% url 'service:track_requests' %}">Track My Requests</a>
+    <div class="container">
+        <h1>Welcome, {{ user.username }}</h1>
+        <p>Please select your required services from the options below:</p>
+
+        <div class="profile-section">
+            <h2>Your Profile</h2>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Full Name:</strong> {{ user.full_name }}</p>
+            <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
+            <p><strong>Address:</strong> {{ user.address }}</p>
+        </div>
+
+        <a href="{% url 'service:submit_service_request' %}"><button>Submit a New Request</button></a>
+        <br><br>
+        <a href="{% url 'service:customer_support' %}"><button>Customer Support</button></a>
+        <br><br>
+        <a href="{% url 'service:track_requests' %}"><button>Track My Requests</button></a>
+    </div>
 </body>
+
 </html>

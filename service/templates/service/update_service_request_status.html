@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assign Service Request</title>
+    <title>Update Service Request Status</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f9;
+            margin: 0;
             padding: 20px;
             box-sizing: border-box;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             background-color: white;
             padding: 20px;
@@ -27,31 +28,30 @@
             color: #333;
         }
 
-        p {
-            color: #555;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        label {
+            font-size: 1.2em;
+            color: #333;
         }
 
         select {
-            padding: 12px;
-            border-radius: 6px;
+            width: 100%;
+            padding: 10px;
             border: 1px solid #ccc;
-            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 1em;
         }
 
         button {
-            padding: 12px;
+            width: 100%;
+            padding: 10px;
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
+            font-size: 1em;
             cursor: pointer;
-            font-size: 16px;
         }
 
         button:hover {
@@ -59,36 +59,35 @@
         }
 
         a {
-            color: #4CAF50;
-            text-decoration: none;
             display: inline-block;
             margin-top: 20px;
+            text-align: center;
+            color: #4CAF50;
+            text-decoration: none;
         }
 
         a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Assign Service Request</h1>
-        <p>Assign this service request to an employee.</p>
-
-        <form method="post">
+        <h1>Update Status for Service Request #{{ service_request.id }}</h1>
+        <form method="POST">
             {% csrf_token %}
-            <label for="employee">Select Employee:</label>
-            <select name="employee" id="employee">
-                {% for employee in employees %}
-                <option value="{{ employee.id }}">{{ employee.username }}</option>
+            <label for="status">Select New Status:</label>
+            <select name="status" id="status">
+                {% for choice in service_request.STATUS_CHOICES %}
+                    <option value="{{ choice.0 }}" {% if service_request.status == choice.0 %}selected{% endif %}>
+                        {{ choice.1 }}
+                    </option>
                 {% endfor %}
             </select>
-
-            <button type="submit">Assign</button>
+            <button type="submit">Update Status</button>
         </form>
-        <a href="{% url 'service:manage_service_requests' %}">Back to Requests</a>
+        <a href="{% url 'service:manage_service_requests' %}">Back to Manage Requests</a>
     </div>
 </body>
 

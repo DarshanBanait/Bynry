@@ -10,6 +10,7 @@ urlpatterns = [
     path('assign/<int:request_id>/', views.assign_service_request, name='assign_service_request'),
     path('dashboard/user/', views.user_dashboard, name='user_dashboard'),
     path('dashboard/admin/', views.admin_dashboard, name='admin_dashboard'),
+    path('update-status/<int:request_id>/', views.update_service_request_status, name='update_service_request_status'),
     path('customer-support/', views.customer_support, name='customer_support'),
     path('track/', views.track_requests, name='track_requests'),
 ]

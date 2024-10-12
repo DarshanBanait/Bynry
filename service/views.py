@@ -61,6 +61,15 @@ def track_requests(request):
     service_requests = ServiceRequest.objects.filter(user=request.user)  # Corrected to filter by user
     return render(request, 'service/track_requests.html', {'service_requests': service_requests})
 
+@login_required
+def update_service_request_status(request, request_id):
+    service_request = get_object_or_404(ServiceRequest, id=request_id)
+    if request.method == 'POST':
+        service_request.status = request.POST.get('status')
+        service_request.save()
+        return redirect('service:manage_service_requests')
+    return render(request, 'service/update_service_request_status.html', {'service_request': service_request})
+
 def customer_support(request):
     context = {
         'title': 'Customer Support',

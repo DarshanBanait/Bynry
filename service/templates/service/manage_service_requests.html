@@ -1,37 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Service Requests</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Manage Service Requests</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Request Type</th>
-                <th>Status</th>
-                <th>Assigned To</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for request in service_requests %}
-            <tr>
-                <td>{{ request.id }}</td>
-                <td>{{ request.request_type }}</td>
-                <td>{{ request.status }}</td>
-                <td>{{ request.assigned_to.username if request.assigned_to else 'Not Assigned' }}</td>
-                <td>
-                    <a href="{% url 'service:assign_service_request' request.id %}">Assign/Update</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <br>
-    <a href="{% url 'service:admin_dashboard' %}">Back to Admin Dashboard</a>
+    <div class="container">
+        <h1>Manage Service Requests</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Request Type</th>
+                    <th>Description</th>
+                    <th>Username</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Assigned To</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in service_requests %}
+                <tr>
+                    <td>{{ request.request_type }}</td>
+                    <td>{{ request.description }}</td>
+                    <td>{{ request.user.username }}</td>
+                    <td>{{ request.user.profile.phone_number }}</td>  <!-- Assuming the user has a profile with phone number -->
+                    <td>{{ request.user.profile.address }}</td>      <!-- Assuming the user has a profile with address -->
+                    <td>
+                        {% if request.assigned_to %}
+                            {{ request.assigned_to.username }}
+                        {% else %}
+                            Not Assigned
+                        {% endif %}
+                    </td>
+                    <td>{{ request.status }}</td>
+                    <td>
+                        <a href="{% url 'service:assign_service_request' request.id %}">Assign</a> |
+                        <a href="{% url 'service:update_service_request_status' request.id %}">Update Status</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{% url 'service:admin_dashboard' %}" class="btn">Back to Admin Dashboard</a>
+    </div>
 </body>
+
 </html>

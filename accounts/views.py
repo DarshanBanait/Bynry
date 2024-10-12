@@ -17,7 +17,7 @@ def register(request):
         form = CustomUserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
-# Custom Login view (redirect to service_requests app dashboards)
+# Custom Login view (redirect to service app dashboards)
 class CustomLoginView(LoginView):
     template_name = 'accounts/login.html'
     form_class = CustomLoginForm
