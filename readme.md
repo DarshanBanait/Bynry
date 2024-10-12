@@ -51,61 +51,61 @@ Make sure you have the following installed on your machine:
      python manage.py runserver
 
 ## Sign Up
-![Image 1](images\image1.png)
+![Image 1](images/image1.png)
 
 
 ## Login - Customer Account
-![Image 2](images\image2.png)
+![Image 2](images/image2.png)
 
 
-![Image 3](images\image3.png)
+![Image 3](images/image3.png)
 
 
 ## User Dashboard
-![Image 4](images\image4.png)
+![Image 4](images/image4.png)
 
 
 ## User Dashboard - Submitting New Request 
-![Image 5](images\image5.png)
+![Image 5](images/image5.png)
 
 
 ## Submitting a request
-![Image 6](images\image6.png)
+![Image 6](images/image6.png)
 
 
-![Image 7](images\image7.png)
+![Image 7](images/image7.png)
 
 
 ## User Dashboard - Tracking Request
-![Image 8](images\image8.png)
+![Image 8](images/image8.png)
 
 
 ## User Dashboard - Customer Support
-![Image 9](images\image9.png)
+![Image 9](images/image9.png)
 
 
 ## Login - Admin
-![Image 10](images\image10.png)
+![Image 10](images/image10.png)
 
 
 ## Admin Dashboard
-![Image 11](images\image11.png)
+![Image 11](images/image11.png)
 
 
 ## Admin Dashboard - Managing Requests
-![Image 12](images\image12.png)
+![Image 12](images/image12.png)
 
 
 ## Admin Dashboard - Assigning Requests to Employees
-![Image 13](images\image13.png)
+![Image 13](images/image13.png)
 
 
 ## Admin Dashboard - Updating Request Status
-![Image 14](images\image14.png)
+![Image 14](images/image14.png)
 
 
-![Image 15](images\image15.png)
+![Image 15](images/image15.png)
 
 
-![Image 16](images\image16.png)
+![Image 16](images/image16.png)
 
