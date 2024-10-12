@@ -22,4 +22,8 @@ class CustomLoginView(LoginView):
     template_name = 'accounts/login.html'
     form_class = CustomLoginForm
 
-    
+    def get_success_url(self):
+        # Redirect to the appropriate dashboard based on the user type
+        if self.request.user.is_staff:
+            return reverse_lazy('service:admin_dashboard')  # Redirect admin users to admin dashboard
+        return reverse_lazy('service:user_dashboard')  # Redirect customers to user dashboard
