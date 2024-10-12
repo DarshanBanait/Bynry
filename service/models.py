@@ -19,7 +19,7 @@ class ServiceRequest(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='service_requests')  # User creating the request
     request_type = models.CharField(max_length=20, choices=REQUEST_TYPES)
     description = models.TextField()
-    attachment = models.FileField(upload_to='attachments/', blank=True, null=True)  # Optional attachment
+    attachment = models.FileField(upload_to='attachments/', blank=True, null=True) 
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     assigned_to = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True, related_name='assigned_requests')  # Staff assignment
     created_at = models.DateTimeField(auto_now_add=True)

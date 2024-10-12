@@ -13,7 +13,7 @@ admin.site.register(CustomerSupport, CustomerAdmin)
 
 # Register the ServiceRequest model to be managed in the admin interface
 class ServiceRequestAdmin(admin.ModelAdmin):
-    list_display = ('user', 'request_type', 'status', 'created_at', 'updated_at')  # Updated fields
+    list_display = ('user', 'request_type', 'status', 'created_at', 'updated_at', 'attachment')  # Updated fields
     search_fields = ('user__name', 'request_type', 'status')  # Search fields updated
     list_filter = ('status', 'request_type', 'created_at')  # Updated filter
     ordering = ('-created_at',)  # Orders the list based on the most recent service request
