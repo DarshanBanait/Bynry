@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Service Requests</title>
+</head>
+<body>
+    <h1>Manage Service Requests</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Request Type</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in service_requests %}
+            <tr>
+                <td>{{ request.id }}</td>
+                <td>{{ request.request_type }}</td>
+                <td>{{ request.status }}</td>
+                <td>{{ request.assigned_to.username if request.assigned_to else 'Not Assigned' }}</td>
+                <td>
+                    <a href="{% url 'service:assign_service_request' request.id %}">Assign/Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'service:admin_dashboard' %}">Back to Admin Dashboard</a>
+</body>
+</html>

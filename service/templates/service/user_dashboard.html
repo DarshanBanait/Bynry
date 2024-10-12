@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    <p>Please select your required services from the options below:</p>
+    
+    <!-- Submit New Request Section -->
+    <a href="{% url 'service:submit_service_request' %}">Submit a New Request</a>
+    <br><br>
+    
+    <!-- Customer Support Section -->
+    <a href="{% url 'service:customer_support' %}">Customer Support</a>
+    <br><br>
+    
+    <!-- Track My Requests Section -->
+    <a href="{% url 'service:track_requests' %}">Track My Requests</a>
+</body>
+</html>
