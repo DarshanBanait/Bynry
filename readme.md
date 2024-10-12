@@ -51,7 +51,7 @@ Make sure you have the following installed on your machine:
      python manage.py runserver
 
 ## Sign Up
-![Image 1](images\image1.png)
+![Image 1](images/image1.png)
 
 
 ## Login - Customer Account
